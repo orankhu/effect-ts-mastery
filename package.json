@@ -1,0 +1,30 @@
+{
+  "name": "effect-ts-mastery",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Documentation-first Effect learning workspace. Lesson implementation code is added only when a lesson starts.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check": "npm run typecheck && npm run test",
+    "typecheck": "tsc --noEmit --project tsconfig.json",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "versions": "npm ls effect @effect/platform @effect/platform-node @effect/vitest typescript tsx vite vitest --depth=0"
+  },
+  "dependencies": {
+    "@effect/platform": "0.96.2",
+    "@effect/platform-node": "0.107.0",
+    "effect": "3.21.4"
+  },
+  "devDependencies": {
+    "@effect/vitest": "0.29.0",
+    "@types/node": "26.0.0",
+    "tsx": "4.22.4",
+    "typescript": "6.0.3",
+    "vite": "6.4.3",
+    "vitest": "3.2.6"
+  }
+}

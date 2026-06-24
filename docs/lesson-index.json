@@ -1,0 +1,1016 @@
+{
+  "metadata": {
+    "name": "Effect TS Mastery Curriculum",
+    "created": "2026-06-24",
+    "lastUpdated": "2026-06-24",
+    "rule": "When asked for the next lesson, select the first lesson with status pending whose prerequisites are completed."
+  },
+  "lessons": [
+    {
+      "id": 1,
+      "slug": "01-effect-value",
+      "title": "Orientation And The Effect Value",
+      "phase": "Core Mental Model",
+      "status": "completed",
+      "prerequisites": [],
+      "primaryDocs": [
+        "https://effect.website/docs/getting-started/introduction/",
+        "https://effect.website/docs/getting-started/why-effect/",
+        "https://effect.website/docs/getting-started/the-effect-type/"
+      ],
+      "implementationPlan": [
+        "lessons/01-effect-value/README.md",
+        "lessons/01-effect-value/src/lesson.ts",
+        "lessons/01-effect-value/test/lesson.test.ts",
+        "lessons/01-effect-value/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "The README explains that Effect construction is lazy.",
+        "The code demonstrates construction without execution.",
+        "The tests prove execution happens only when the Effect is run.",
+        "npm run check passes."
+      ],
+      "notes": "Completed Lesson 01 with nested lesson structure, README, notes, lazy Effect implementation, and tests proving construction does not execute side effects."
+    },
+    {
+      "id": 2,
+      "slug": "02-effect-type-parameters",
+      "title": "Reading Effect<A, E, R>",
+      "phase": "Core Mental Model",
+      "status": "pending",
+      "prerequisites": [
+        1
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/getting-started/the-effect-type/",
+        "https://effect.website/docs/getting-started/importing-effect/"
+      ],
+      "implementationPlan": [
+        "lessons/02-effect-type-parameters/README.md",
+        "lessons/02-effect-type-parameters/src/lesson.ts",
+        "lessons/02-effect-type-parameters/test/lesson.test.ts",
+        "lessons/02-effect-type-parameters/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "The README explains success, error, and requirements channels.",
+        "Examples include effects with different A, E, and R shapes.",
+        "Tests cover success, expected failure, and a service requirement.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 3,
+      "slug": "03-creating-effects",
+      "title": "Creating Effects",
+      "phase": "Core Mental Model",
+      "status": "pending",
+      "prerequisites": [
+        2
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/getting-started/creating-effects/"
+      ],
+      "implementationPlan": [
+        "lessons/03-creating-effects/README.md",
+        "lessons/03-creating-effects/src/lesson.ts",
+        "lessons/03-creating-effects/test/lesson.test.ts",
+        "lessons/03-creating-effects/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "Examples choose the right constructor for pure, sync, promise, and unsafe work.",
+        "Expected failures are modeled with Effect.fail or try constructors.",
+        "Tests cover success and failure paths.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 4,
+      "slug": "04-running-effects",
+      "title": "Running Effects And Runtime Boundaries",
+      "phase": "Core Mental Model",
+      "status": "pending",
+      "prerequisites": [
+        3
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/getting-started/running-effects/",
+        "https://effect.website/docs/runtime/"
+      ],
+      "implementationPlan": [
+        "lessons/04-running-effects/README.md",
+        "lessons/04-running-effects/src/lesson.ts",
+        "lessons/04-running-effects/test/lesson.test.ts",
+        "lessons/04-running-effects/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "Runtime calls appear only in boundary or test code.",
+        "Examples inspect direct results and Exit results.",
+        "README explains why reusable functions return Effects.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 5,
+      "slug": "05-pipelines-and-generators",
+      "title": "Pipelines, Mapping, Flat Mapping, And Generators",
+      "phase": "Core Mental Model",
+      "status": "pending",
+      "prerequisites": [
+        4
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/getting-started/building-pipelines/",
+        "https://effect.website/docs/getting-started/using-generators/"
+      ],
+      "implementationPlan": [
+        "lessons/05-pipelines-and-generators/README.md",
+        "lessons/05-pipelines-and-generators/src/lesson.ts",
+        "lessons/05-pipelines-and-generators/test/lesson.test.ts",
+        "lessons/05-pipelines-and-generators/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "One workflow is implemented with pipeline style.",
+        "The same workflow is implemented with Effect.gen.",
+        "Tests prove both workflows are equivalent.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 6,
+      "slug": "06-control-flow",
+      "title": "Control Flow Operators",
+      "phase": "Core Mental Model",
+      "status": "pending",
+      "prerequisites": [
+        5
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/getting-started/control-flow-operators/"
+      ],
+      "implementationPlan": [
+        "lessons/06-control-flow/README.md",
+        "lessons/06-control-flow/src/lesson.ts",
+        "lessons/06-control-flow/test/lesson.test.ts",
+        "lessons/06-control-flow/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "The workflow has multiple branches.",
+        "Business rejections are typed, not thrown.",
+        "Tests cover every branch.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 7,
+      "slug": "07-expected-errors-as-data",
+      "title": "Expected Errors As Data",
+      "phase": "Error Mastery",
+      "status": "pending",
+      "prerequisites": [
+        6
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/error-management/two-types-of-errors/",
+        "https://effect.website/docs/error-management/expected-errors/",
+        "https://effect.website/docs/data-types/data/"
+      ],
+      "implementationPlan": [
+        "lessons/07-expected-errors-as-data/README.md",
+        "lessons/07-expected-errors-as-data/src/lesson.ts",
+        "lessons/07-expected-errors-as-data/test/lesson.test.ts",
+        "lessons/07-expected-errors-as-data/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "Domain failures use named tagged errors.",
+        "Tests assert exact error tags.",
+        "No expected domain failure is thrown.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 8,
+      "slug": "08-defects-cause-exit",
+      "title": "Defects, Cause, And Exit",
+      "phase": "Error Mastery",
+      "status": "pending",
+      "prerequisites": [
+        7
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/error-management/unexpected-errors/",
+        "https://effect.website/docs/error-management/sandboxing/",
+        "https://effect.website/docs/data-types/cause/",
+        "https://effect.website/docs/data-types/exit/"
+      ],
+      "implementationPlan": [
+        "lessons/08-defects-cause-exit/README.md",
+        "lessons/08-defects-cause-exit/src/lesson.ts",
+        "lessons/08-defects-cause-exit/test/lesson.test.ts",
+        "lessons/08-defects-cause-exit/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "Examples include success, expected failure, and defect.",
+        "Tests inspect Exit or Cause values.",
+        "README explains why defects are not normal domain failures.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 9,
+      "slug": "09-matching-fallbacks-recovery",
+      "title": "Matching, Fallbacks, And Recovery",
+      "phase": "Error Mastery",
+      "status": "pending",
+      "prerequisites": [
+        8
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/error-management/fallback/",
+        "https://effect.website/docs/error-management/matching/",
+        "https://effect.website/docs/error-management/error-channel-operations/"
+      ],
+      "implementationPlan": [
+        "lessons/09-matching-fallbacks-recovery/README.md",
+        "lessons/09-matching-fallbacks-recovery/src/lesson.ts",
+        "lessons/09-matching-fallbacks-recovery/test/lesson.test.ts",
+        "lessons/09-matching-fallbacks-recovery/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "One tagged error is recovered while another remains possible.",
+        "Boundary code converts final errors into user-facing values.",
+        "Tests prove unrecovered errors still fail.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 10,
+      "slug": "10-retry-timeout-schedule",
+      "title": "Retry, Timeout, And Schedule Basics",
+      "phase": "Error Mastery",
+      "status": "pending",
+      "prerequisites": [
+        9
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/error-management/retrying/",
+        "https://effect.website/docs/error-management/timing-out/",
+        "https://effect.website/docs/scheduling/introduction/",
+        "https://effect.website/docs/scheduling/built-in-schedules/"
+      ],
+      "implementationPlan": [
+        "lessons/10-retry-timeout-schedule/README.md",
+        "lessons/10-retry-timeout-schedule/src/lesson.ts",
+        "lessons/10-retry-timeout-schedule/test/lesson.test.ts",
+        "lessons/10-retry-timeout-schedule/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "Retry policy is separate from the operation.",
+        "Timeout behavior is modeled and tested.",
+        "Tests avoid real sleep.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 11,
+      "slug": "11-error-accumulation-validation",
+      "title": "Error Accumulation And Validation",
+      "phase": "Error Mastery",
+      "status": "pending",
+      "prerequisites": [
+        10
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/error-management/error-accumulation/",
+        "https://effect.website/docs/error-management/parallel-and-sequential-errors/"
+      ],
+      "implementationPlan": [
+        "lessons/11-error-accumulation-validation/README.md",
+        "lessons/11-error-accumulation-validation/src/lesson.ts",
+        "lessons/11-error-accumulation-validation/test/lesson.test.ts",
+        "lessons/11-error-accumulation-validation/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "A validation workflow returns multiple errors when appropriate.",
+        "Tests cover one error and multiple errors.",
+        "README explains fail-fast versus accumulation.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 12,
+      "slug": "12-services-context-tags",
+      "title": "Services With Context Tags",
+      "phase": "Services, Layers, And Resources",
+      "status": "pending",
+      "prerequisites": [
+        11
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/requirements-management/services/"
+      ],
+      "implementationPlan": [
+        "lessons/12-services-context-tags/README.md",
+        "lessons/12-services-context-tags/src/lesson.ts",
+        "lessons/12-services-context-tags/test/lesson.test.ts",
+        "lessons/12-services-context-tags/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "A program exposes a service requirement in its type before provisioning.",
+        "A fake service is provided in tests.",
+        "README explains Context.Tag and requirements.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 13,
+      "slug": "13-layers-dependency-graphs",
+      "title": "Layers And Dependency Graphs",
+      "phase": "Services, Layers, And Resources",
+      "status": "pending",
+      "prerequisites": [
+        12
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/requirements-management/layers/"
+      ],
+      "implementationPlan": [
+        "lessons/13-layers-dependency-graphs/README.md",
+        "lessons/13-layers-dependency-graphs/src/lesson.ts",
+        "lessons/13-layers-dependency-graphs/test/lesson.test.ts",
+        "lessons/13-layers-dependency-graphs/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "One service depends on another service.",
+        "Layers compose to satisfy the final program.",
+        "Tests swap live and test layers.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 14,
+      "slug": "14-layer-memoization-default-services",
+      "title": "Layer Memoization And Default Services",
+      "phase": "Services, Layers, And Resources",
+      "status": "pending",
+      "prerequisites": [
+        13
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/requirements-management/layer-memoization/",
+        "https://effect.website/docs/requirements-management/default-services/"
+      ],
+      "implementationPlan": [
+        "lessons/14-layer-memoization-default-services/README.md",
+        "lessons/14-layer-memoization-default-services/src/lesson.ts",
+        "lessons/14-layer-memoization-default-services/test/lesson.test.ts",
+        "lessons/14-layer-memoization-default-services/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "Layer construction count or behavior demonstrates memoization.",
+        "One default service is explained or overridden.",
+        "Tests prove expected construction behavior.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 15,
+      "slug": "15-resource-safety-scope",
+      "title": "Resource Safety And Scope",
+      "phase": "Services, Layers, And Resources",
+      "status": "pending",
+      "prerequisites": [
+        14
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/resource-management/introduction/",
+        "https://effect.website/docs/resource-management/scope/"
+      ],
+      "implementationPlan": [
+        "lessons/15-resource-safety-scope/README.md",
+        "lessons/15-resource-safety-scope/src/lesson.ts",
+        "lessons/15-resource-safety-scope/test/lesson.test.ts",
+        "lessons/15-resource-safety-scope/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "A scoped resource is acquired and released.",
+        "Tests prove finalizers run on success and failure.",
+        "README explains ownership and scope lifetime.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 16,
+      "slug": "16-configuration",
+      "title": "Configuration",
+      "phase": "Services, Layers, And Resources",
+      "status": "pending",
+      "prerequisites": [
+        15
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/configuration/"
+      ],
+      "implementationPlan": [
+        "lessons/16-configuration/README.md",
+        "lessons/16-configuration/src/lesson.ts",
+        "lessons/16-configuration/test/lesson.test.ts",
+        "lessons/16-configuration/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "Required and optional config are modeled.",
+        "Tests provide config without depending on process.env.",
+        "Sensitive config is not printed raw.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 17,
+      "slug": "17-ref-synchronized-ref",
+      "title": "Ref And SynchronizedRef",
+      "phase": "State, Caching, Scheduling, And Coordination",
+      "status": "pending",
+      "prerequisites": [
+        16
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/state-management/ref/",
+        "https://effect.website/docs/state-management/synchronizedref/"
+      ],
+      "implementationPlan": [
+        "lessons/17-ref-synchronized-ref/README.md",
+        "lessons/17-ref-synchronized-ref/src/lesson.ts",
+        "lessons/17-ref-synchronized-ref/test/lesson.test.ts",
+        "lessons/17-ref-synchronized-ref/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "State is managed through Effect primitives.",
+        "Concurrent or repeated updates produce deterministic results.",
+        "README explains Ref versus SynchronizedRef.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 18,
+      "slug": "18-cache-and-batching",
+      "title": "Cache And Batching",
+      "phase": "State, Caching, Scheduling, And Coordination",
+      "status": "pending",
+      "prerequisites": [
+        17
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/caching/caching-effects/",
+        "https://effect.website/docs/caching/cache/",
+        "https://effect.website/docs/batching/"
+      ],
+      "implementationPlan": [
+        "lessons/18-cache-and-batching/README.md",
+        "lessons/18-cache-and-batching/src/lesson.ts",
+        "lessons/18-cache-and-batching/test/lesson.test.ts",
+        "lessons/18-cache-and-batching/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "Repeated lookups avoid duplicate work.",
+        "Tests prove the underlying operation is called fewer times than requested.",
+        "README explains cache lifetime and invalidation.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 19,
+      "slug": "19-fibers-interruption",
+      "title": "Fibers And Interruption",
+      "phase": "State, Caching, Scheduling, And Coordination",
+      "status": "pending",
+      "prerequisites": [
+        18
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/concurrency/basic-concurrency/",
+        "https://effect.website/docs/concurrency/fibers/"
+      ],
+      "implementationPlan": [
+        "lessons/19-fibers-interruption/README.md",
+        "lessons/19-fibers-interruption/src/lesson.ts",
+        "lessons/19-fibers-interruption/test/lesson.test.ts",
+        "lessons/19-fibers-interruption/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "The lesson forks and joins at least one fiber.",
+        "The lesson interrupts a running fiber.",
+        "Tests prove interruption affects behavior.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 20,
+      "slug": "20-parallelism-concurrency-controls",
+      "title": "Parallelism And Concurrency Controls",
+      "phase": "State, Caching, Scheduling, And Coordination",
+      "status": "pending",
+      "prerequisites": [
+        19
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/concurrency/basic-concurrency/",
+        "https://effect.website/docs/concurrency/semaphore/"
+      ],
+      "implementationPlan": [
+        "lessons/20-parallelism-concurrency-controls/README.md",
+        "lessons/20-parallelism-concurrency-controls/src/lesson.ts",
+        "lessons/20-parallelism-concurrency-controls/test/lesson.test.ts",
+        "lessons/20-parallelism-concurrency-controls/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "A collection is processed with bounded concurrency.",
+        "Tests prove the concurrency limit is respected.",
+        "README explains sequential versus parallel composition.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 21,
+      "slug": "21-coordination-primitives",
+      "title": "Deferred, Queue, PubSub, Semaphore, And Latch",
+      "phase": "State, Caching, Scheduling, And Coordination",
+      "status": "pending",
+      "prerequisites": [
+        20
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/concurrency/deferred/",
+        "https://effect.website/docs/concurrency/queue/",
+        "https://effect.website/docs/concurrency/pubsub/",
+        "https://effect.website/docs/concurrency/semaphore/",
+        "https://effect.website/docs/concurrency/latch/"
+      ],
+      "implementationPlan": [
+        "lessons/21-coordination-primitives/README.md",
+        "lessons/21-coordination-primitives/src/lesson.ts",
+        "lessons/21-coordination-primitives/test/lesson.test.ts",
+        "lessons/21-coordination-primitives/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "A producer-consumer or coordination workflow is implemented.",
+        "At least two coordination primitives are demonstrated.",
+        "Tests prove ordering, completion, or synchronization.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 22,
+      "slug": "22-stream-creation-consumption",
+      "title": "Stream Creation And Consumption",
+      "phase": "Streams And Sinks",
+      "status": "pending",
+      "prerequisites": [
+        21
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/stream/introduction/",
+        "https://effect.website/docs/stream/creating/",
+        "https://effect.website/docs/stream/consuming/"
+      ],
+      "implementationPlan": [
+        "lessons/22-stream-creation-consumption/README.md",
+        "lessons/22-stream-creation-consumption/src/lesson.ts",
+        "lessons/22-stream-creation-consumption/test/lesson.test.ts",
+        "lessons/22-stream-creation-consumption/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "Finite streams are created from values and effects.",
+        "Streams are consumed into a collection or summary.",
+        "Tests prove emitted values and completion.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 23,
+      "slug": "23-stream-errors-resources-backpressure",
+      "title": "Stream Errors, Resources, And Back Pressure",
+      "phase": "Streams And Sinks",
+      "status": "pending",
+      "prerequisites": [
+        22
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/stream/error-handling/",
+        "https://effect.website/docs/stream/resourceful-streams/",
+        "https://effect.website/docs/stream/operations/"
+      ],
+      "implementationPlan": [
+        "lessons/23-stream-errors-resources-backpressure/README.md",
+        "lessons/23-stream-errors-resources-backpressure/src/lesson.ts",
+        "lessons/23-stream-errors-resources-backpressure/test/lesson.test.ts",
+        "lessons/23-stream-errors-resources-backpressure/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "A stream uses a scoped resource.",
+        "Stream error recovery is specific, not broad.",
+        "Tests prove finalizer behavior.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 24,
+      "slug": "24-sinks-stream-consumers",
+      "title": "Sinks And Stream Consumers",
+      "phase": "Streams And Sinks",
+      "status": "pending",
+      "prerequisites": [
+        23
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/sink/introduction/",
+        "https://effect.website/docs/sink/creating/",
+        "https://effect.website/docs/sink/operations/",
+        "https://effect.website/docs/sink/concurrency/",
+        "https://effect.website/docs/sink/leftovers/"
+      ],
+      "implementationPlan": [
+        "lessons/24-sinks-stream-consumers/README.md",
+        "lessons/24-sinks-stream-consumers/src/lesson.ts",
+        "lessons/24-sinks-stream-consumers/test/lesson.test.ts",
+        "lessons/24-sinks-stream-consumers/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "A reusable sink processes a stream.",
+        "Leftovers, early termination, or sink composition is demonstrated.",
+        "Tests prove sink output.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 25,
+      "slug": "25-core-data-types",
+      "title": "Core Data Types",
+      "phase": "Data Types And Schema",
+      "status": "pending",
+      "prerequisites": [
+        24
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/data-types/option/",
+        "https://effect.website/docs/data-types/either/",
+        "https://effect.website/docs/data-types/chunk/",
+        "https://effect.website/docs/data-types/data/",
+        "https://effect.website/docs/data-types/duration/",
+        "https://effect.website/docs/data-types/datetime/",
+        "https://effect.website/docs/data-types/redacted/"
+      ],
+      "implementationPlan": [
+        "lessons/25-core-data-types/README.md",
+        "lessons/25-core-data-types/src/lesson.ts",
+        "lessons/25-core-data-types/test/lesson.test.ts",
+        "lessons/25-core-data-types/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "Nullable, union, and collection examples use appropriate data types.",
+        "Tests prove safe handling of missing and present values.",
+        "README explains when each data type is useful.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 26,
+      "slug": "26-schema-basics",
+      "title": "Schema Basics",
+      "phase": "Data Types And Schema",
+      "status": "pending",
+      "prerequisites": [
+        25
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/schema/introduction/",
+        "https://effect.website/docs/schema/getting-started/",
+        "https://effect.website/docs/schema/basic-usage/",
+        "https://effect.website/docs/schema/filters/"
+      ],
+      "implementationPlan": [
+        "lessons/26-schema-basics/README.md",
+        "lessons/26-schema-basics/src/lesson.ts",
+        "lessons/26-schema-basics/test/lesson.test.ts",
+        "lessons/26-schema-basics/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "Unknown input is decoded through Schema.",
+        "Invalid input produces parse failures.",
+        "No unsafe type assertion is used at the input boundary.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 27,
+      "slug": "27-advanced-schema",
+      "title": "Advanced Schema",
+      "phase": "Data Types And Schema",
+      "status": "pending",
+      "prerequisites": [
+        26
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/schema/advanced-usage/",
+        "https://effect.website/docs/schema/transformations/",
+        "https://effect.website/docs/schema/class-apis/",
+        "https://effect.website/docs/schema/default-constructors/",
+        "https://effect.website/docs/schema/json-schema/",
+        "https://effect.website/docs/schema/arbitrary/",
+        "https://effect.website/docs/schema/pretty-printer/"
+      ],
+      "implementationPlan": [
+        "lessons/27-advanced-schema/README.md",
+        "lessons/27-advanced-schema/src/lesson.ts",
+        "lessons/27-advanced-schema/test/lesson.test.ts",
+        "lessons/27-advanced-schema/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "A richer schema includes transformation or defaults.",
+        "Tests cover decode and encode behavior.",
+        "Derived artifacts are explained if used.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 28,
+      "slug": "28-testing-effects-layers-time",
+      "title": "Testing Effects, Layers, And Time",
+      "phase": "Testing, Runtime, Observability, And Platform",
+      "status": "pending",
+      "prerequisites": [
+        27
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/testing/testclock/",
+        "https://github.com/Effect-TS/effect/tree/main/packages/vitest"
+      ],
+      "implementationPlan": [
+        "lessons/28-testing-effects-layers-time/README.md",
+        "lessons/28-testing-effects-layers-time/src/lesson.ts",
+        "lessons/28-testing-effects-layers-time/test/lesson.test.ts",
+        "lessons/28-testing-effects-layers-time/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "Tests cover success, failure, service override, and time.",
+        "No test uses real sleep.",
+        "README explains deterministic Effect tests.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 29,
+      "slug": "29-runtime-application-boundaries",
+      "title": "Runtime And Application Boundaries",
+      "phase": "Testing, Runtime, Observability, And Platform",
+      "status": "pending",
+      "prerequisites": [
+        28
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/runtime/",
+        "https://effect.website/docs/platform/runtime/"
+      ],
+      "implementationPlan": [
+        "lessons/29-runtime-application-boundaries/README.md",
+        "lessons/29-runtime-application-boundaries/src/lesson.ts",
+        "lessons/29-runtime-application-boundaries/test/lesson.test.ts",
+        "lessons/29-runtime-application-boundaries/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "Runtime calls are centralized in a boundary module.",
+        "Domain functions remain runtime-free.",
+        "Tests call reusable effects directly.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 30,
+      "slug": "30-observability",
+      "title": "Logging, Metrics, Tracing, And Supervisor",
+      "phase": "Testing, Runtime, Observability, And Platform",
+      "status": "pending",
+      "prerequisites": [
+        29
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/observability/logging/",
+        "https://effect.website/docs/observability/metrics/",
+        "https://effect.website/docs/observability/tracing/",
+        "https://effect.website/docs/observability/supervisor/"
+      ],
+      "implementationPlan": [
+        "lessons/30-observability/README.md",
+        "lessons/30-observability/src/lesson.ts",
+        "lessons/30-observability/test/lesson.test.ts",
+        "lessons/30-observability/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "The workflow includes logging and at least one observable signal.",
+        "Tests avoid brittle assertions against uncontrolled console output.",
+        "README explains logs versus metrics versus traces.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 31,
+      "slug": "31-platform-services",
+      "title": "Platform Services",
+      "phase": "Testing, Runtime, Observability, And Platform",
+      "status": "pending",
+      "prerequisites": [
+        30
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/platform/introduction/",
+        "https://effect.website/docs/platform/path/",
+        "https://effect.website/docs/platform/filesystem/",
+        "https://effect.website/docs/platform/terminal/",
+        "https://effect.website/docs/platform/command/",
+        "https://effect.website/docs/platform/runtime/"
+      ],
+      "implementationPlan": [
+        "lessons/31-platform-services/README.md",
+        "lessons/31-platform-services/src/lesson.ts",
+        "lessons/31-platform-services/test/lesson.test.ts",
+        "lessons/31-platform-services/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "File or terminal work uses platform services, not direct Node APIs in core logic.",
+        "Node layers are provided at the boundary or test setup.",
+        "Tests use temporary paths or fakes.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 32,
+      "slug": "32-cli-workflow",
+      "title": "CLI Workflow",
+      "phase": "Testing, Runtime, Observability, And Platform",
+      "status": "pending",
+      "prerequisites": [
+        31
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/platform/terminal/",
+        "https://effect.website/docs/platform/command/",
+        "https://github.com/Effect-TS/effect/tree/main/packages/cli"
+      ],
+      "implementationPlan": [
+        "lessons/32-cli-workflow/README.md",
+        "lessons/32-cli-workflow/src/lesson.ts",
+        "lessons/32-cli-workflow/test/lesson.test.ts",
+        "lessons/32-cli-workflow/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "CLI boundary code delegates to testable effects.",
+        "Input validation is typed.",
+        "Tests cover parsing and domain behavior.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 33,
+      "slug": "33-http-external-apis",
+      "title": "HTTP And External APIs",
+      "phase": "Testing, Runtime, Observability, And Platform",
+      "status": "pending",
+      "prerequisites": [
+        32
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/platform/introduction/",
+        "https://github.com/Effect-TS/effect/tree/main/packages/platform"
+      ],
+      "implementationPlan": [
+        "lessons/33-http-external-apis/README.md",
+        "lessons/33-http-external-apis/src/lesson.ts",
+        "lessons/33-http-external-apis/test/lesson.test.ts",
+        "lessons/33-http-external-apis/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "External calls are represented through a service or current platform API.",
+        "Request or response data is validated with Schema.",
+        "Tests do not make live network calls.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 34,
+      "slug": "34-persistence-sql-concepts",
+      "title": "Persistence And SQL Concepts",
+      "phase": "Testing, Runtime, Observability, And Platform",
+      "status": "pending",
+      "prerequisites": [
+        33
+      ],
+      "primaryDocs": [
+        "https://github.com/Effect-TS/effect/tree/main/packages/sql"
+      ],
+      "implementationPlan": [
+        "lessons/34-persistence-sql-concepts/README.md",
+        "lessons/34-persistence-sql-concepts/src/lesson.ts",
+        "lessons/34-persistence-sql-concepts/test/lesson.test.ts",
+        "lessons/34-persistence-sql-concepts/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "Persistence is hidden behind a repository service.",
+        "Domain code does not depend directly on a concrete SQL driver.",
+        "Tests use fake layer or isolated test database.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 35,
+      "slug": "35-architecture-migration",
+      "title": "Architecture And Migration From Promise Code",
+      "phase": "Architecture And Capstone",
+      "status": "pending",
+      "prerequisites": [
+        34
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/additional-resources/effect-vs-promise/",
+        "https://effect.website/docs/additional-resources/effect-vs-neverthrow/",
+        "https://effect.website/docs/additional-resources/effect-vs-fp-ts/",
+        "https://effect.website/docs/code-style/guidelines/"
+      ],
+      "implementationPlan": [
+        "lessons/35-architecture-migration/README.md",
+        "lessons/35-architecture-migration/src/lesson.ts",
+        "lessons/35-architecture-migration/test/lesson.test.ts",
+        "lessons/35-architecture-migration/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "A promise-heavy module is refactored into typed effects.",
+        "Behavior remains covered by tests.",
+        "README documents migration order and tradeoffs.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    },
+    {
+      "id": 36,
+      "slug": "36-capstone-production-workflow",
+      "title": "Capstone Production Workflow",
+      "phase": "Architecture And Capstone",
+      "status": "pending",
+      "prerequisites": [
+        35
+      ],
+      "primaryDocs": [
+        "https://effect.website/docs/getting-started/introduction/",
+        "https://effect.website/docs/requirements-management/layers/",
+        "https://effect.website/docs/schema/introduction/",
+        "https://effect.website/docs/concurrency/basic-concurrency/",
+        "https://effect.website/docs/platform/introduction/"
+      ],
+      "implementationPlan": [
+        "lessons/36-capstone-production-workflow/README.md",
+        "lessons/36-capstone-production-workflow/src/lesson.ts",
+        "lessons/36-capstone-production-workflow/test/lesson.test.ts",
+        "lessons/36-capstone-production-workflow/notes.md"
+      ],
+      "acceptanceCriteria": [
+        "The app has live and test layers.",
+        "The app validates external input.",
+        "Expected errors are modeled and handled.",
+        "At least one concurrent, scheduled, or streaming component is included.",
+        "The README explains architecture and how to run it.",
+        "npm run check passes."
+      ],
+      "notes": ""
+    }
+  ]
+}
