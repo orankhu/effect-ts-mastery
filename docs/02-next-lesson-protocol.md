@@ -35,7 +35,7 @@ Never mark a lesson `completed` just because files exist. The acceptance criteri
 2. Find the first lesson where `status` is `pending` and all `prerequisites` are `completed` or empty.
 3. Read that lesson's section in `docs/01-curriculum.md`.
 4. Read all `primaryDocs` links listed in the lesson index. If a link is unstable or outdated, check the installed package typings.
-5. Read `skills/effect-ts/SKILL.md` and the relevant `skills/effect-ts/references/` guide for the concept being taught. If source-level Effect research is needed, ensure `.repos/effect` exists by running `npm run prepare`.
+5. Read `.agents/skills/effect-ts/SKILL.md` and the relevant `.agents/skills/effect-ts/references/` guide for the concept being taught. If source-level Effect research is needed, ensure `.repos/effect` exists by running `npm run prepare`.
 6. Change the lesson status to `in_progress`.
 7. Create only the files listed in `implementationPlan`.
 8. Keep the lesson folder self-contained:

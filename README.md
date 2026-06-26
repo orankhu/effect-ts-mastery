@@ -19,7 +19,7 @@ npm run check
 - `@effect/platform-node`: Node.js layer implementations for platform services.
 - `@effect/vitest`, `vitest`, `typescript`, `tsx`: test and execution tooling for future lessons.
 - `@biomejs/biome`: formatting, import organization, and recommended lint rules for lesson code.
-- `skills/effect-ts`: vendored `Effect-TS/skills` guidance for future Effect work.
+- `.agents/skills/effect-ts`: installed `Effect-TS/skills` guidance for future Effect work.
 
 Version snapshot verified on 2026-06-24:
 
@@ -41,6 +41,11 @@ Note: latest `vitest` from npm was `4.1.9` at setup time, but `@effect/vitest@0.
 
 ```text
 effect-ts-mastery/
+  .agents/
+    skills/
+      effect-ts/
+        SKILL.md
+        references/
   docs/
     00-resource-map.md
     01-curriculum.md
@@ -59,11 +64,6 @@ effect-ts-mastery/
     README.md
   scripts/
     prepare-effect.sh
-    sync-effect-skill.sh
-  skills/
-    effect-ts/
-      SKILL.md
-      references/
   src/
     boilerplate.ts
   tests/
@@ -80,7 +80,7 @@ When you say "next lesson", use this rule:
 1. Open `docs/lesson-index.json`.
 2. Pick the first lesson whose `status` is `pending`.
 3. Read the matching section in `docs/01-curriculum.md`.
-4. Read `skills/effect-ts/SKILL.md` and the relevant local skill reference.
+4. Read `.agents/skills/effect-ts/SKILL.md` and the relevant local skill reference.
 5. Create only the files named by that lesson's `implementationPlan`.
 6. Add code, tests, and notes for that lesson only.
 7. Run `npm run check`.
@@ -106,7 +106,6 @@ npm run test
 npm run check
 npm run versions
 npm run prepare
-npm run skills:sync
 ```
 
-`npm run prepare` ensures `.repos/effect` exists for source-level Effect research. `npm run skills:sync` refreshes the vendored `effect-ts` skill from `Effect-TS/skills`.
+`npm run prepare` ensures `.repos/effect` exists for source-level Effect research. Refresh the installed `effect-ts` skill with `npx skills add Effect-TS/skills`.

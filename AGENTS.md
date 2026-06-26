@@ -4,14 +4,14 @@ This repo is an Effect TypeScript learning project. Future lesson work should fo
 
 ## Effect Skill Guidance
 
-This repo vendors the upstream `Effect-TS/skills` `effect-ts` skill at `skills/effect-ts/`.
+This repo uses the upstream `Effect-TS/skills` `effect-ts` skill installed at `.agents/skills/effect-ts/`.
 
 When doing Effect-specific work:
 
-- Read `skills/effect-ts/SKILL.md` first, then the relevant file under `skills/effect-ts/references/`.
+- Read `.agents/skills/effect-ts/SKILL.md` first, then the relevant file under `.agents/skills/effect-ts/references/`.
 - Ensure the local Effect source checkout exists at `.repos/effect` before source-level research. Run `npm run prepare` if it is missing.
 - Prefer the local skill guides before digging into `.repos/effect`, and prefer the lesson protocol when teaching constraints are stricter than production-app guidance.
-- Refresh the vendored skill with `npm run skills:sync` when the user asks to align with the latest upstream skills.
+- Refresh the installed skill with `npx skills add Effect-TS/skills` when the user asks to align with the latest upstream skills.
 
 Biome is the formatting and linting tool for this repo. Run `npm run format` for safe fixes and `npm run check` before considering lesson work complete.
 

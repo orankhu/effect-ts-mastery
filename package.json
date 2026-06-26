@@ -12,7 +12,6 @@
     "format": "biome check --write .",
     "lint": "biome check .",
     "prepare": "./scripts/prepare-effect.sh",
-    "skills:sync": "./scripts/sync-effect-skill.sh",
     "typecheck": "tsc --noEmit --project tsconfig.json",
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
