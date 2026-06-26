@@ -25,7 +25,25 @@ Each lesson should teach one clear Effect concept and include:
 - A separate learner test file where the learner writes tests.
 - Review questions that require explanation, not just recall.
 
-The lesson should feel like guided practice, not a complete solution dump.
+The lesson should feel like guided practice, not a complete solution dump. It should teach
+through a realistic software workflow before asking for technical implementation steps.
+
+## Story-Driven Lesson Framing
+
+Lesson READMEs should start from a small product, operations, or user workflow before
+listing technical requirements. The learner should understand why the code exists, not only
+which function to implement.
+
+- Give the worked example a concrete scenario that shows where the Effect concept appears.
+- Give the learner exercise a `Story` section and, when useful, a short `User Story`.
+- Translate the story into Effect concepts before the checklist of implementation tasks.
+- Keep requirements precise after the story; narrative context should motivate the task,
+  not replace acceptance criteria.
+- Prefer realistic software situations such as forms, APIs, validation, services, resources,
+  retries, and workflows.
+- Avoid direct-order-only exercise wording like "implement `functionName` with
+  `Effect.tryPromise`" unless the README first explains the workflow reason that constructor
+  is appropriate.
 
 ## Lesson Folder Shape
 
@@ -64,7 +82,7 @@ The learner exercise should:
 
 - Require the same concept as the worked example.
 - Add one or two extra decisions so the learner has to think.
-- Include clear requirements in the README.
+- Include a realistic story plus clear requirements in the README.
 - Leave implementation work in `src/exercise.ts`.
 - Avoid hidden tricks unrelated to the lesson concept.
 

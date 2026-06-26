@@ -39,9 +39,11 @@ Never mark a lesson `completed` just because files exist. The acceptance criteri
 6. Change the lesson status to `in_progress`.
 7. Create only the files listed in `implementationPlan`.
 8. Keep the lesson folder self-contained:
-   - `README.md`: concept explanation, instructions, expected output, recap.
+   - `README.md`: concept explanation, story, worked example, learner exercise, expected output, recap.
    - `src/lesson.ts`: lesson implementation.
+   - `src/exercise.ts`: learner-owned exercise scaffold when the lesson includes practice.
    - `test/lesson.test.ts`: verification.
+   - `test/exercise.test.ts`: learner-owned test scaffold when the lesson includes practice.
    - `notes.md`: optional mistakes, alternatives, and review notes.
 9. Run:
 
@@ -63,13 +65,37 @@ lessons/NN-some-topic/
   notes.md
   src/
     lesson.ts
+    exercise.ts
   test/
     lesson.test.ts
+    exercise.test.ts
 ```
 
 Use zero-padded lesson numbers in folder names.
 
 Keep lesson-local source inside that lesson's `src/` folder. Shared code is not allowed until at least three lessons need it. When shared code becomes justified, put it in the project-level `src/` folder and document why in the current lesson's `notes.md`.
+
+## Story-Driven Teaching
+
+Each lesson README should explain the work as a small product, operations, or user workflow
+before listing technical requirements. The learner should understand why the code exists,
+not only which function to fill in.
+
+Use the story to make the Effect concept concrete:
+
+- Start the worked example with a realistic situation and name the user, operator, system,
+  or boundary involved.
+- Start the learner exercise with a `Story` section and, when useful, a short `User Story`.
+- Translate the story into Effect concepts before the implementation checklist. For example,
+  explain which step is pure, which step is lazy synchronous work, which failure is expected
+  in `E`, which boundary may throw, and which Promise may reject.
+- Keep the technical requirements precise after the story. The story should motivate the
+  task, not replace exact acceptance criteria.
+- Avoid decorative fiction that distracts from the concept. Prefer realistic software
+  scenarios: forms, APIs, validation, retries, services, resources, workflows, and tests.
+- Avoid direct-order-only exercise wording such as "implement `functionName` with
+  `Effect.tryPromise`" unless it is preceded by the workflow reason that constructor is
+  appropriate.
 
 ## Lesson README Template
 
@@ -92,9 +118,23 @@ One paragraph.
 - Reading links
 - What to observe in type signatures
 
+## Worked Example
+
+A short scenario that explains why the example workflow exists.
+
 ## Exercise
 
-Specific implementation task.
+### Story
+
+A realistic workflow that explains who needs the behavior and what can go wrong.
+
+### User Story
+
+As a [user/operator/system], I want [outcome], so that [reason].
+
+### Implementation Requirements
+
+Specific implementation task, mapped back to the story and the lesson concept.
 
 ## Tests
 

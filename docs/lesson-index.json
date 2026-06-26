@@ -66,7 +66,7 @@
       "slug": "03-creating-effects",
       "title": "Creating Effects",
       "phase": "Core Mental Model",
-      "status": "pending",
+      "status": "completed",
       "prerequisites": [
         2
       ],
@@ -76,7 +76,9 @@
       "implementationPlan": [
         "lessons/03-creating-effects/README.md",
         "lessons/03-creating-effects/src/lesson.ts",
+        "lessons/03-creating-effects/src/exercise.ts",
         "lessons/03-creating-effects/test/lesson.test.ts",
+        "lessons/03-creating-effects/test/exercise.test.ts",
         "lessons/03-creating-effects/notes.md"
       ],
       "acceptanceCriteria": [
@@ -85,7 +87,7 @@
         "Tests cover success and failure paths.",
         "npm run check passes."
       ],
-      "notes": ""
+      "notes": "Completed Lesson 03 with constructor-focused worked examples, tests covering success, expected failures, try/tryPromise failures, and sync defects; added learner exercise and todo test scaffold for shipping-label practice."
     },
     {
       "id": 4,
