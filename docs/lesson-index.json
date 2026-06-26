@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Effect TS Mastery Curriculum",
     "created": "2026-06-24",
-    "lastUpdated": "2026-06-24",
+    "lastUpdated": "2026-06-26",
     "rule": "When asked for the next lesson, select the first lesson with status pending whose prerequisites are completed."
   },
   "lessons": [
@@ -37,7 +37,7 @@
       "slug": "02-effect-type-parameters",
       "title": "Reading Effect<A, E, R>",
       "phase": "Core Mental Model",
-      "status": "pending",
+      "status": "completed",
       "prerequisites": [
         1
       ],
@@ -48,7 +48,9 @@
       "implementationPlan": [
         "lessons/02-effect-type-parameters/README.md",
         "lessons/02-effect-type-parameters/src/lesson.ts",
+        "lessons/02-effect-type-parameters/src/exercise.ts",
         "lessons/02-effect-type-parameters/test/lesson.test.ts",
+        "lessons/02-effect-type-parameters/test/exercise.test.ts",
         "lessons/02-effect-type-parameters/notes.md"
       ],
       "acceptanceCriteria": [
@@ -57,7 +59,7 @@
         "Tests cover success, expected failure, and a service requirement.",
         "npm run check passes."
       ],
-      "notes": ""
+      "notes": "Completed Lesson 02 with worked examples for A, E, and R; learner implemented quoteOrder, wrote exercise tests, and answered review questions explaining success, error, and requirement channels."
     },
     {
       "id": 3,
