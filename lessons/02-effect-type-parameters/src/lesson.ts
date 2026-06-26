@@ -59,13 +59,11 @@ export const formatTaxedPrice = (baseCents: number): TaxedPriceProgram =>
 export const providePricingConfig = <A, E>(
   program: Effect.Effect<A, E, PricingConfig>,
   config: PricingConfigService
-): Effect.Effect<A, E, never> =>
-  Effect.provideService(program, PricingConfig, config)
+): Effect.Effect<A, E, never> => Effect.provideService(program, PricingConfig, config)
 
 export type RunnableTaxedPriceProgram = Effect.Effect<string, never, never>
 
 export const makeRunnableTaxedPrice = (
   baseCents: number,
   config: PricingConfigService
-): RunnableTaxedPriceProgram =>
-  providePricingConfig(formatTaxedPrice(baseCents), config)
+): RunnableTaxedPriceProgram => providePricingConfig(formatTaxedPrice(baseCents), config)

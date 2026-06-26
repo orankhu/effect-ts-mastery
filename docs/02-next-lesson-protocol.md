@@ -35,22 +35,23 @@ Never mark a lesson `completed` just because files exist. The acceptance criteri
 2. Find the first lesson where `status` is `pending` and all `prerequisites` are `completed` or empty.
 3. Read that lesson's section in `docs/01-curriculum.md`.
 4. Read all `primaryDocs` links listed in the lesson index. If a link is unstable or outdated, check the installed package typings.
-5. Change the lesson status to `in_progress`.
-6. Create only the files listed in `implementationPlan`.
-7. Keep the lesson folder self-contained:
+5. Read `skills/effect-ts/SKILL.md` and the relevant `skills/effect-ts/references/` guide for the concept being taught. If source-level Effect research is needed, ensure `.repos/effect` exists by running `npm run prepare`.
+6. Change the lesson status to `in_progress`.
+7. Create only the files listed in `implementationPlan`.
+8. Keep the lesson folder self-contained:
    - `README.md`: concept explanation, instructions, expected output, recap.
    - `src/lesson.ts`: lesson implementation.
    - `test/lesson.test.ts`: verification.
    - `notes.md`: optional mistakes, alternatives, and review notes.
-8. Run:
+9. Run:
 
 ```sh
 npm run check
 ```
 
-9. If tests or typecheck fail, fix the lesson before moving on.
-10. When acceptance criteria pass, update status to `completed`.
-11. Add a short completion note to `docs/lesson-index.json` in that lesson's `notes` field.
+10. If formatting, linting, tests, or typecheck fail, fix the lesson before moving on.
+11. When acceptance criteria pass, update status to `completed`.
+12. Add a short completion note to `docs/lesson-index.json` in that lesson's `notes` field.
 
 ## File Rules
 
@@ -114,6 +115,7 @@ What the tests prove.
 
 ## Code Style Rules For Lessons
 
+- Run `npm run format` before the final `npm run check`.
 - Prefer `Effect.gen` once sequencing involves two or more effectful steps.
 - Prefer named typed errors with `Data.TaggedError` for domain failures.
 - Prefer services and layers over module-level mutable dependencies.

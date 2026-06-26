@@ -5,17 +5,16 @@ import {
   countLabelCharacters,
   formatTaxedPrice,
   makeRunnableTaxedPrice,
+  type PricingConfig,
   parseSeatCount,
   providePricingConfig,
-  type PricingConfig,
   type RunnableTaxedPriceProgram,
   type TaxedPriceProgram
 } from "../src/lesson.js"
 
 type Expect<T extends true> = T
 type Equal<A, B> =
-  (<T>() => T extends A ? 1 : 2) extends
-  (<T>() => T extends B ? 1 : 2) ? true : false
+  (<T>() => T extends A ? 1 : 2) extends <T>() => T extends B ? 1 : 2 ? true : false
 type Requirement<T extends Effect.Effect<unknown, unknown, unknown>> =
   T extends Effect.Effect<unknown, unknown, infer R> ? R : never
 
@@ -56,10 +55,6 @@ describe("Lesson 02: reading Effect<A, E, R>", () => {
   })
 })
 
-type _TaxedPriceRequirement = Expect<
-  Equal<Requirement<TaxedPriceProgram>, PricingConfig>
->
+type _TaxedPriceRequirement = Expect<Equal<Requirement<TaxedPriceProgram>, PricingConfig>>
 
-type _RunnableTaxedPriceRequirement = Expect<
-  Equal<Requirement<RunnableTaxedPriceProgram>, never>
->
+type _RunnableTaxedPriceRequirement = Expect<Equal<Requirement<RunnableTaxedPriceProgram>, never>>

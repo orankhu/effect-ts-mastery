@@ -18,6 +18,8 @@ npm run check
 - `@effect/platform`: platform-independent services such as `FileSystem`, `Path`, `Terminal`, `Command`, and platform runtime helpers.
 - `@effect/platform-node`: Node.js layer implementations for platform services.
 - `@effect/vitest`, `vitest`, `typescript`, `tsx`: test and execution tooling for future lessons.
+- `@biomejs/biome`: formatting, import organization, and recommended lint rules for lesson code.
+- `skills/effect-ts`: vendored `Effect-TS/skills` guidance for future Effect work.
 
 Version snapshot verified on 2026-06-24:
 
@@ -31,6 +33,7 @@ Version snapshot verified on 2026-06-24:
 | `tsx` | `4.22.4` |
 | `vitest` | `3.2.6` |
 | `vite` | `6.4.3` |
+| `@biomejs/biome` | `2.5.1` |
 
 Note: latest `vitest` from npm was `4.1.9` at setup time, but `@effect/vitest@0.29.0` declares a peer dependency on `vitest@^3.2.0`, so this project pins the newest compatible 3.x release. `vite@6.4.3` is pinned directly to stay inside Vitest 3's supported Vite range while avoiding a low-severity advisory in a newer Vite transitive `esbuild`.
 
@@ -54,6 +57,13 @@ effect-ts-mastery/
       test/
   resources/
     README.md
+  scripts/
+    prepare-effect.sh
+    sync-effect-skill.sh
+  skills/
+    effect-ts/
+      SKILL.md
+      references/
   src/
     boilerplate.ts
   tests/
@@ -70,10 +80,11 @@ When you say "next lesson", use this rule:
 1. Open `docs/lesson-index.json`.
 2. Pick the first lesson whose `status` is `pending`.
 3. Read the matching section in `docs/01-curriculum.md`.
-4. Create only the files named by that lesson's `implementationPlan`.
-5. Add code, tests, and notes for that lesson only.
-6. Run `npm run check`.
-7. Mark the lesson as `completed` in `docs/lesson-index.json` only after the acceptance criteria pass.
+4. Read `skills/effect-ts/SKILL.md` and the relevant local skill reference.
+5. Create only the files named by that lesson's `implementationPlan`.
+6. Add code, tests, and notes for that lesson only.
+7. Run `npm run check`.
+8. Mark the lesson as `completed` in `docs/lesson-index.json` only after the acceptance criteria pass.
 
 Do not skip ahead unless the user explicitly asks.
 
@@ -88,10 +99,14 @@ Do not skip ahead unless the user explicitly asks.
 ## Current Commands
 
 ```sh
+npm run format
+npm run lint
 npm run typecheck
 npm run test
 npm run check
 npm run versions
+npm run prepare
+npm run skills:sync
 ```
 
-The `test` script intentionally passes with no tests so the scaffold is green before lesson code exists.
+`npm run prepare` ensures `.repos/effect` exists for source-level Effect research. `npm run skills:sync` refreshes the vendored `effect-ts` skill from `Effect-TS/skills`.

@@ -2,6 +2,19 @@
 
 This repo is an Effect TypeScript learning project. Future lesson work should follow the existing lesson protocol in `docs/02-next-lesson-protocol.md`, plus the learner-focused structure below.
 
+## Effect Skill Guidance
+
+This repo vendors the upstream `Effect-TS/skills` `effect-ts` skill at `skills/effect-ts/`.
+
+When doing Effect-specific work:
+
+- Read `skills/effect-ts/SKILL.md` first, then the relevant file under `skills/effect-ts/references/`.
+- Ensure the local Effect source checkout exists at `.repos/effect` before source-level research. Run `npm run prepare` if it is missing.
+- Prefer the local skill guides before digging into `.repos/effect`, and prefer the lesson protocol when teaching constraints are stricter than production-app guidance.
+- Refresh the vendored skill with `npm run skills:sync` when the user asks to align with the latest upstream skills.
+
+Biome is the formatting and linting tool for this repo. Run `npm run format` for safe fixes and `npm run check` before considering lesson work complete.
+
 ## Lesson Goals
 
 Each lesson should teach one clear Effect concept and include:
