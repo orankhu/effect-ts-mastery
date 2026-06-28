@@ -95,6 +95,9 @@ The learner test file should:
 - Be separate from the worked example tests.
 - Contain test names or lightweight scaffolding that the learner can complete.
 - Avoid failing `npm run check` before the learner starts.
+- Use `@effect/vitest` for Effect-based tests. Prefer `it.effect` with `Effect.gen`
+  and `yield*` over manually calling `Effect.runSync` or `Effect.runPromise` inside
+  ordinary Vitest tests.
 
 Use `it.todo(...)` or skipped tests when needed so the repo remains green before the learner attempts the exercise. The README should tell the learner to replace the todos with real tests as part of the lesson.
 

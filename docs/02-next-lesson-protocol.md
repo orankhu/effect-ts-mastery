@@ -164,6 +164,11 @@ What the tests prove.
 - Put `R` requirements in the type instead of hiding dependencies in closures.
 - Use `Schema` for external input boundaries once parsing appears.
 - Use `Scope` and `Effect.acquireRelease` for resources with lifecycle.
+- Use `@effect/vitest` for Effect-based lesson tests. Prefer `it.effect` with
+  `Effect.gen` and `yield*` instead of calling `Effect.runSync` or
+  `Effect.runPromise` inside ordinary Vitest tests.
+- Test expected failures with `Effect.flip` or `Effect.exit` inside `it.effect`
+  when the lesson is about the typed error channel.
 - Test time with `TestClock` instead of real sleeping.
 - Test services by providing test layers.
 

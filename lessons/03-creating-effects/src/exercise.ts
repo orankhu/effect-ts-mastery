@@ -29,26 +29,43 @@ export interface ShippingLabel {
 
 export type BuildShippingLabelError = EmptyOrderId | InvalidAddressJson | ShippingRateUnavailable
 
-export const normalizeOrderId = (_input: string): Effect.Effect<string, EmptyOrderId, never> =>
-  todo("normalizeOrderId: trim the input and fail with EmptyOrderId when it is empty")
+export const normalizeOrderId = (_input: string): Effect.Effect<string, EmptyOrderId, never> => {
+  const trimmed = _input.trim()
+  if (trimmed === "") {
+    return Effect.fail(
+      new EmptyOrderId({
+        input: _input
+      })
+    )
+  }
+  return Effect.succeed(trimmed)
+}
 
-export const readCreatedAt = (_now: () => Date): Effect.Effect<string, never, never> =>
-  todo("readCreatedAt: call now inside Effect.sync and return an ISO string")
+export const readCreatedAt = (_now: () => Date): Effect.Effect<string, never, never> => {
+  return Effect.sync(() => _now().toISOString())
+}
 
 export const loadPackagingCode = (
   _loadPackagingCode: () => Promise<string>
-): Effect.Effect<string, never, never> =>
-  todo("loadPackagingCode: use Effect.promise for a Promise that should only resolve")
+): Effect.Effect<string, never, never> => Effect.promise(() => _loadPackagingCode())
 
 export const parseShippingAddress = (
   _input: string
 ): Effect.Effect<ShippingAddress, InvalidAddressJson, never> =>
-  todo("parseShippingAddress: use Effect.try to parse JSON and validate the address shape")
+  Effect.try({
+    try: () => JSON.parse(_input),
+    catch: (error) => {
+      return new InvalidAddressJson({ input: _input, cause: error })
+    }
+  })
 
 export const loadShippingRateCents = (
   _loadRateCents: () => Promise<number>
 ): Effect.Effect<number, ShippingRateUnavailable, never> =>
-  todo("loadShippingRateCents: use Effect.tryPromise and map rejection to ShippingRateUnavailable")
+  Effect.tryPromise({
+    try: () => _loadRateCents(),
+    catch: (error) => new ShippingRateUnavailable({ cause: error })
+  })
 
 export const buildShippingLabel = (
   _orderId: string,
@@ -56,8 +73,20 @@ export const buildShippingLabel = (
   _now: () => Date,
   _loadPackagingCode: () => Promise<string>,
   _loadRateCents: () => Promise<number>
-): Effect.Effect<ShippingLabel, BuildShippingLabelError, never> =>
-  todo("buildShippingLabel: compose the helper effects with Effect.gen")
+): Effect.Effect<ShippingLabel, BuildShippingLabelError, never> => {
+  return Effect.gen(function* () {
+    const orderId = yield* normalizeOrderId(_orderId)
+    const address = yield* parseShippingAddress(_addressJson)
+    const createdAtIso = yield* readCreatedAt(_now)
+    const packagingCode = yield* loadPackagingCode(_loadPackagingCode)
+    const rateCents = yield* loadShippingRateCents(_loadRateCents)
 
-const todo = (message: string): Effect.Effect<never, never, never> =>
-  Effect.dieMessage(`TODO Lesson 03 exercise: ${message}`)
+    return {
+      orderId,
+      createdAtIso,
+      packagingCode,
+      address,
+      rateCents
+    }
+  })
+}
