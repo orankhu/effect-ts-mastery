@@ -37,4 +37,6 @@ Ready for learner review with:
 - Worked example implementation.
 - Tests for lazy construction, direct sync execution, sync `Exit`, async
   execution, and async `Exit`.
+- Learner exercise scaffold for implementing boundary helpers.
+- Learner test scaffold with todos.
 - README explaining why reusable functions return Effects.

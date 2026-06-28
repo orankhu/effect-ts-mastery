@@ -53,9 +53,50 @@ same kind of program:
 The important habit is not "always use a run function". The habit is: keep
 business code effect-returning, and run once at the edge.
 
+## Exercise
+
+Open [src/exercise.ts](src/exercise.ts).
+
+### Story
+
+You are adding a "Preview refund approval" action to a support tool.
+
+A support specialist reviews a refund request, then needs either a console-friendly
+preview for an internal operations command or a Promise-returning result for a
+web API route. The business workflow should validate the refund id, read the
+review timestamp, and build a preview as an `Effect`.
+
+The support tool has two kinds of boundaries:
+
+- the support console wants a plain value for success
+- the web API wants a `Promise`
+- both boundaries sometimes need `Exit` data so they can inspect typed failures
+  without losing failure details
+
+### User Story
+
+As a support specialist, I want the refund preview workflow to stay reusable
+while each application edge chooses how to run it, so that console commands and
+web handlers do not force runtime details into business logic.
+
+### Implementation Requirements
+
+The reusable workflow helpers are already scaffolded. Finish the boundary
+helpers:
+
+1. `runSupportConsoleBoundary`: run a runnable Effect synchronously and return
+   the plain success value.
+2. `inspectSupportConsoleBoundary`: run a runnable Effect synchronously and
+   return an `Exit`.
+3. `runSupportApiBoundary`: run a runnable Effect as a `Promise`.
+4. `inspectSupportApiBoundary`: run a runnable Effect as a `Promise<Exit>`.
+
+Do not call runtime functions inside the reusable refund workflow. Runtime calls
+belong only in the boundary helpers or tests.
+
 ## Tests
 
-The tests are in [test/lesson.test.ts](test/lesson.test.ts). They prove:
+The worked example tests are in [test/lesson.test.ts](test/lesson.test.ts). They prove:
 
 1. Constructing the business workflow does not execute it.
 2. A sync boundary can turn a successful Effect into a plain value.
@@ -63,11 +104,15 @@ The tests are in [test/lesson.test.ts](test/lesson.test.ts). They prove:
 4. An async boundary can expose a successful Effect as a `Promise`.
 5. `runPromiseExit` returns an async `Exit` instead of rejecting for typed failure.
 
+Your learner tests are in [test/exercise.test.ts](test/exercise.test.ts). Replace
+the `it.todo(...)` entries with real tests as you implement the exercise.
+
 Useful commands:
 
 ```sh
 npm run check
 npx vitest run lessons/04-running-effects/test/lesson.test.ts
+npx vitest run lessons/04-running-effects/test/exercise.test.ts
 ```
 
 ## Review Questions
@@ -88,4 +133,6 @@ npx vitest run lessons/04-running-effects/test/lesson.test.ts
 - [x] Runtime calls appear only in boundary helpers and tests.
 - [x] Reusable workflow functions return `Effect`.
 - [x] Tests compare direct results and `Exit` results.
+- [x] Exercise scaffold exists.
+- [x] Learner test scaffold exists.
 - [x] `npm run check` passes.

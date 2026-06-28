@@ -105,16 +105,19 @@
       "implementationPlan": [
         "lessons/04-running-effects/README.md",
         "lessons/04-running-effects/src/lesson.ts",
+        "lessons/04-running-effects/src/exercise.ts",
         "lessons/04-running-effects/test/lesson.test.ts",
+        "lessons/04-running-effects/test/exercise.test.ts",
         "lessons/04-running-effects/notes.md"
       ],
       "acceptanceCriteria": [
         "Runtime calls appear only in boundary or test code.",
         "Examples inspect direct results and Exit results.",
+        "The learner exercise scaffolds boundary helpers without solving them.",
         "README explains why reusable functions return Effects.",
         "npm run check passes."
       ],
-      "notes": "Completed Lesson 04 with a runtime-boundary worked example, reusable Effect-returning workflow functions, boundary helpers for runSync/runPromise and Exit variants, and tests covering lazy construction plus direct and Exit-based execution."
+      "notes": "Completed Lesson 04 with a runtime-boundary worked example, reusable Effect-returning workflow functions, boundary helpers for runSync/runPromise and Exit variants, tests covering lazy construction plus direct and Exit-based execution, and a learner exercise scaffold for implementing runtime boundaries."
     },
     {
       "id": 5,
