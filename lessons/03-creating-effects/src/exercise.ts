@@ -19,6 +19,12 @@ export interface ShippingAddress {
   readonly country: string
 }
 
+export interface ShippingAddressShape {
+  readonly name?: unknown
+  readonly street?: unknown
+  readonly country?: unknown
+}
+
 export interface ShippingLabel {
   readonly orderId: string
   readonly createdAtIso: string
@@ -45,6 +51,40 @@ export const readCreatedAt = (_now: () => Date): Effect.Effect<string, never, ne
   return Effect.sync(() => _now().toISOString())
 }
 
+export const isShippingAddressShape = (value: unknown): value is ShippingAddressShape => {
+  return typeof value === "object" && value !== null && !Array.isArray(value)
+}
+
+export const shippingAddressFromUnknown = (value: unknown): ShippingAddress => {
+  if (!isShippingAddressShape(value)) {
+    throw new Error("shipping address must be an object")
+  }
+
+  const { name, street, country } = value
+
+  if (!isNonEmptyString(name)) {
+    throw new Error("shipping address name must be a non-empty string")
+  }
+
+  if (!isNonEmptyString(street)) {
+    throw new Error("shipping address street must be a non-empty string")
+  }
+
+  if (!isNonEmptyString(country)) {
+    throw new Error("shipping address country must be a non-empty string")
+  }
+
+  return {
+    name: name.trim(),
+    street: street.trim(),
+    country: country.trim()
+  }
+}
+
+export const isNonEmptyString = (value: unknown): value is string => {
+  return typeof value === "string" && value.trim() !== ""
+}
+
 export const loadPackagingCode = (
   _loadPackagingCode: () => Promise<string>
 ): Effect.Effect<string, never, never> => Effect.promise(() => _loadPackagingCode())
@@ -53,7 +93,10 @@ export const parseShippingAddress = (
   _input: string
 ): Effect.Effect<ShippingAddress, InvalidAddressJson, never> =>
   Effect.try({
-    try: () => JSON.parse(_input),
+    try: () => {
+      const parsed: unknown = JSON.parse(_input)
+      return shippingAddressFromUnknown(parsed)
+    },
     catch: (error) => {
       return new InvalidAddressJson({ input: _input, cause: error })
     }
